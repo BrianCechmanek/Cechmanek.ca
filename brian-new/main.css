@@ -28,6 +28,10 @@ p {
     font-family: serif, Georgia;
 }
 
+ul {
+    text-decoration-style: none;
+}
+
 header {
     text-align: right;
     color: dimgray;
@@ -69,9 +73,10 @@ header {
 }
 
 #education {
+    text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: darkseagreen;
+    background-color: darkseagreen;    
 }
 
 #profile a {
@@ -83,6 +88,23 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     background: cadetblue;
+}
+
+.container {
+    text-align: center;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    max-height: 100%;
+
+    display: inline-block;
+}
+
+.container img {
+    max-width: 256px;
+}
+
+.container details {
+    max-width: 256px;
 }
 
 #download {
