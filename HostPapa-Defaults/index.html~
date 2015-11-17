@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-A-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="main.css"/>
+	<title>
+	    MainPage
+	</title>
+    </head>
+
+    <body>
+
+     <div class="nav"
+      <div class="container">
+       <ul class="pull-left">
+	<li>Main</li>
+       </ul>
+       <ul class ="pull-right">
+	<li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+   	<li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#bot">Contact</a></li>
+       </ul>
+      </div> <!-- close container -->
+     </div> <!-- close nav -->
+  
+     <div id="top" class="jumbotron"> <!-- Title segment -->
+      <div class="container">
+       <h1>Brian Cechmanek</h2>
+       <h2 class="pull-left">MSc Candidate</h2>
+       <p style="clear:both">Biomedical Engineering</p>
+      </div>
+     </div>
+
+     <div id="education" class="block">
+      <div>
+       <h1>Education</h1>
+       <ul>
+        <li>MSc candidate BME(Radiology), University of Calgary</li>
+        <p>Investigating Structural-Functional Connectivity in children with ASD</p>
+        <li>BHSc(Hons), Protecting the Blood Brain Barrier, using Mild Hypothermia, in Ischemic Stroke</li>
+       </ul>
+      </div> <!-- close div -->
+     </div> <!--* close block* -->
+
+     <div id="mid" class="jumbotron">
+      <div class="container">
+       <h1>Projects</h1>
+        <ul>
+         <li>Alta. 1248812 Ltd. Design and manufacture of Vane and Mesh pack applications and custom stainless & aluminium welding</li>
+         <li>Pok. A Novel arachnid repellant to keep my girlfriend happy! (she's maybe a teeny bit arachnophobic)</li>
+         <li>Redesign of the non-profit AMRA the website and organizing club promotion.</li>
+        </ul>
+      </div> <!-- close container -->
+     </div> <!-- close jumbotron -->
+
+     <div id="volunteer"class="block">
+      <h1>Volunteer</h1>
+       <ul>
+        <li>CMA, AMRA member and volunteer, fundraising and promotions</li>
+        <li>Vivo Jazz Community band member and volunteer, fundraising and recruitment</li>
+        <li>Percussion Instructor, Bishop Grandin Highschool Marching Ghosts</li>
+       </ul>
+     </div> <!-- close block -->
+
+     <div id="bot" class="jumbotron">
+      <div class="container">
+       <h1>Contact</h1>
+       <div class="col-md-3">
+        <p>Email: bkcechma@ucalgary.ca</p>
+        <p>Phone: 403 955 2644</p>
+        <p>Mail: <br>C4-411, Alberta Children's Hospital<br>
+            Shagannappi Trail <br>Calgary AB, T3B 6A8</p>
+       </div>
+      </div> <!-- close container -->
+     </div> <!-- close jumbotron -->
+<!-- removing footer, and just putting contact in bot jumbotron -->
+<!-- Can put back in later should I find something to fill that -->
+<!--     <div id="contact" class="block">
+      <h2>Contact</h3>
+      <p>Email: Dr.Spaceman@sharklazers.com</p>
+      <p>cell: 403-555-1234</p>
+      <p>mail: Room C4-410, Alberta Children's Hospital<br>
+         Shagannappi Trail</br> Calgary AB, T3B 6A8</p>
+     </div> <!-- close block -->
+-->
+
+    </body>
+
+</html>

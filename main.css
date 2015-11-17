@@ -1,0 +1,62 @@
+/* CSS sheet for main cechmanek.ca page */
+
+body {
+    background-color: #696971;
+}
+
+#wrapper {
+	width: 80%;
+	margin: auto;
+	margin-top: 50px;
+	box-shadow: 0 0 20px black;
+	min-height: 100%;
+	background-color: white;
+    overflow: auto;
+}
+
+.profile {
+    border-bottom: 10px;
+    border-bottom-color: aqua;
+}
+
+.profile:hover {
+    background-color: azure;
+}
+
+.thumb {
+        float: left;
+}
+
+.thumb img {
+    display: block;
+    float: left;
+    resize: both
+}
+
+.info {
+    margin-left: 210px;
+}
+
+a.action {
+    background-color: #E5E5EE;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #7A7A52; 
+}
+
+a:active {
+    color: #0000FF; 
+}
+
+
+
+

@@ -1,0 +1,167 @@
+/*
+    CSS for Brian Cechmanek landing page
+    Copyright Brian Cechmanek 2015
+*/
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: serif, Georgia;
+    text-align: center;
+}
+
+p {
+    font-family: serif, Georgia;
+}
+
+header {
+    text-align: right;
+    color: dimgray;
+    background: dimgray;
+    text-decoration: none;
+}
+
+
+.navbar {
+    padding-top: 2px;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 200;
+    height: auto;
+    width: 99%;
+}
+
+.navbar li:hover a {
+    background: darkseagreen;
+    line-height: 25px;
+}
+
+.navbar li a {
+    text-decoration-line: none;
+    list-style-type: none;
+    display: inline-block;
+
+}
+
+.navbar a:focus {
+    outline: 0;
+}
+
+#profile {
+    padding-top: 10px;
+    background: cadetblue;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#education {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: darkseagreen;
+}
+
+#profile a {
+    color: darkgray;
+    text-decoration-line: none;
+}
+
+#projects {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: cadetblue;
+}
+
+#download {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    background: darkseagreen;
+    text-align: center;
+}
+
+#contact {
+    background: azure;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+#info {
+    padding-bottom: 20px;
+    background: dimgray;
+}
+
+#location {
+    padding-top: 5px;
+    background: cadetblue;
+    font-size: 14px;
+}
+
+#profile #education {
+    text-align: center;
+    font-size: 14px;
+}
+
+#footer {
+    font-size: 14px;
+
+}
+
+.list-inline {
+    text-decoration-style: none; 
+}
+
+.list-inline li {
+    text-align: center;
+    list-style-type: none;
+}
+
+#copyr {
+    clear: both;
+}
+
+.btn {
+    margin-top: -15px;
+    border: solid 2px white;
+    color: dimgray;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+    font-size: 16px;
+    width: 20%;
+    border-radius: 7px;
+}
+
+.btn:hover, 
+.btn:focus,
+.btn:active {
+    border: solid 2px limegreen;
+    color: aqua;
+    background: dimgray;
+}
+
+#resume.btn {
+    float: left;
+    margin-left: 28%;
+}
+
+#cv.btn {
+    float: right;
+    margin-right: 28%;
+}
+
+#send.btn {
+    border: solid 2px dimgray;
+}

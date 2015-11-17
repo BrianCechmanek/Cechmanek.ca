@@ -1,0 +1,100 @@
+/* CSS sheet TO DO */
+/* For the images for grants page, I'd love to find some car
+   stuff of his to input. And I'll blur the tops and bottoms in
+   Illustrator to blend with the black text boxes.
+   Then, I'd like to change the black text boxes to a nice light
+   green or greenish brownish something (to go better with the
+   theme of auto and Baja car stuff. WHich means the text will
+   turn to black, and the image gradient I'll need to go by
+   CMYK color code (in illustrator, easy).       */
+
+.nav {
+ background-color: black;
+ height: 30px;
+ width: 100%;
+}
+
+.nav li {
+ display: inline;
+ text-transform: uppercase;
+ font-size: 16px;
+ font-family: Monaco;
+ font-weight: bold;
+ color: white;
+ padding-left: -20px;
+ padding-right: 20px;
+}
+
+.block {
+    background-color: black;
+    height: 400px;
+    max-width: 100%;
+    padding-left: 75px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0px;
+    float: clear;
+}
+
+#top.jumbotron {
+    background-image:url("img/MainPageHeader.png");
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: -20px;
+}
+
+#projects.jumbotron {
+    width:  100%;
+    background-color: black;
+    /* background-image:url("img/MainPageMid.png"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -20px;
+}
+
+#bot.jumbotron {
+    width: 100%;
+    background-image:url("img/MainPageBot.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: -33px;
+    height:456px; 
+}
+
+
+/* text styling goes below */
+#top.jumbotron h1 {
+    color: white;
+    font-family: Monaco;
+}
+
+#projects.jumbotron h1 {
+    color: white;
+    font-family: Monaco;
+}
+
+#bot.jumbotron h1 {
+    color: white;
+    font-family: Monaco;
+    font-size: 32px;
+}
+
+#bot.jumbotron p {
+    color: white;
+    font-family: Monaco;
+    font-size: 14px;
+}
+
+.jumbotron p {
+    color: white;
+    font-family: Monaco;
+    padding-top: -5px;
+}
+
+h1, h2, p, li {
+    color: white;
+    font-family: Monaco;
+    text-shadow: 0 0 2px black ;
+}
+

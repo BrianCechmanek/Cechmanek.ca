@@ -1,0 +1,129 @@
+/*
+    CSS for Brian Cechmanek landing page
+    Copyright Brian Cechmanek 2015
+*/
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: serif, Georgia;
+    text-align: center;
+}
+
+p {
+    font-family: serif, Georgia;
+}
+
+header {
+    text-align: right;
+    color: dimgray;
+    background: dimgray;
+    text-decoration: none;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 200;
+    height: 25px;
+    list-style-type: none;
+}
+
+.navbar a:focus {
+    outline: 0;
+}
+
+#profile {
+    padding-top: 10px;
+    background: cadetblue;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+#education {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: darkslategray;
+}
+
+#projects {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: cadetblue;
+}
+
+#download {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: darkseagreen;
+    text-align: center;
+}
+
+#contact {
+    background: azure;
+}
+
+
+#info {
+    padding-bottom: 20px;
+    background: dimgray;
+}
+
+#location {
+    padding-top: 5px;
+    background: cadetblue;
+    font-size: 14px;
+}
+
+#profile #education {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.btn {
+    margin-top: 15px;
+    border: solid 2px white;
+    color: dimgray;
+    background: 0 0;
+    transition: all .3s ease-in-out;
+    font-size: 16px;
+    width: 20%;
+    border-radius: 7px;
+}
+
+.btn:hover, 
+.btn:focus,
+.btn:active,
+.btn.active {
+    border: solid 2px aqua;
+    color: aqua;
+    background: dimgray;
+}
+
+#btn.resume {
+    float: left;
+}
+
+#btn.cv {
+    float: right;
+}
+
+.column2 {
+    /* somehow make 2 columns here */
+}
+

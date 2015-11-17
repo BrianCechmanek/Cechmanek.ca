@@ -1,0 +1,45 @@
+/* CSS sheet for main cechmanek.ca page */
+
+.body {
+    background-color: black;
+}
+
+.button {
+    background-color: #00CC99;
+    height: 50px;
+    width: 15%;
+    border: 2px solid;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #888888; 
+    margin: auto;
+}
+
+.button p {
+    font-size: 18px;
+    font-family: Monaco;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 0 1px black;
+    padding-top: 7px;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: #624D77;
+}
+
+a:hover {
+    color: #7A7A52; 
+}
+
+a:active {
+    color: #0000FF; 
+}
+
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-A-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="main.css" type="text/css" rel="stylesheet"/>
+	<title>
+	    MainPage
+	</title
+    </head>
+
+    <body bgcolor=black>
+	<div id="people">
+	  <div class="button" id="Brian">
+           <p><a href="brian/index.html">Brian</a></p>
+            </div>
+	  <div class="button" id="Grant">
+           <p><a href="grant/index.html">Grant</a></p>
+            </div>
+	  <div class="button" id="Paula">
+           <p><a href="paula/index.html">Paula</a></</div>
+        </div>
+	
+    </body>
+
+
+</html>
