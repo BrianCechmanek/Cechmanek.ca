@@ -86,7 +86,7 @@
                 <div class="caption">
                     <h3>Programming</h3>
                     <img src="img/code.png" class="img-responsive" alt="">
-                    <details><summary>Self-taught developer</summary>With a tenuous grasp on html/css, java, python, C, and MATLAB!</details>
+                    <details><summary>Self-taught developer</summary>With a tenuous grasp on html/css, java, python, C, and MATLAB! Examples include this website, and my GitHub.</details>
                 </div>
             </div>
             <div class="container" id="portfolio5">
@@ -113,8 +113,8 @@
             </div>
             <div class="column2">
                 <p>See my Résumé and CV here</p>
-                <div class="btn" id="resume"><a href="/files/resume.pdf" download>Résumé</a></div>
-                <div class="btn" id="cv"><a href="/files/cv.pdf">CV</a></div>
+                <div class="btn" id="resume"><a href="files/resume.pdf" download>Résumé</a></div>
+                <div class="btn" id="cv"><a href="files/cv.pdf">CV</a></div>
             </div>
         </section>
     </main>

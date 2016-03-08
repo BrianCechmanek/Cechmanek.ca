@@ -28,6 +28,10 @@ p {
     font-family: serif, Georgia;
 }
 
+ul {
+    text-decoration-style: none;
+}
+
 header {
     text-align: right;
     color: dimgray;
@@ -35,11 +39,26 @@ header {
     text-decoration: none;
 }
 
+
 .navbar {
+    padding-top: 2px;
+    padding-bottom: 8px;
     text-transform: uppercase;
     font-weight: 200;
-    height: 25px;
+    height: auto;
+    width: 99%;
+}
+
+.navbar li:hover a {
+    background: darkseagreen;
+    line-height: 25px;
+}
+
+.navbar li a {
+    text-decoration-line: none;
     list-style-type: none;
+    display: inline-block;
+
 }
 
 .navbar a:focus {
@@ -53,11 +72,16 @@ header {
     padding-bottom: 10px;
 }
 
-
 #education {
+    text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: darkslategray;
+    background-color: darkseagreen;    
+}
+
+#profile a {
+    color: darkgray;
+    text-decoration-line: none;
 }
 
 #projects {
@@ -66,15 +90,35 @@ header {
     background: cadetblue;
 }
 
+.container {
+    text-align: center;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    max-height: 100%;
+
+    display: inline-block;
+}
+
+.container img {
+    max-width: 256px;
+}
+
+.container details {
+    max-width: 256px;
+}
+
 #download {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     background: darkseagreen;
     text-align: center;
 }
 
 #contact {
+    text-align: center;
     background: azure;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -84,6 +128,7 @@ header {
 }
 
 #location {
+    text-align: center;
     padding-top: 5px;
     background: cadetblue;
     font-size: 14px;
@@ -94,9 +139,26 @@ header {
     font-size: 14px;
 }
 
+#footer {
+    font-size: 14px;
+
+}
+
+.list-inline {
+    text-decoration-style: none; 
+}
+
+.list-inline li {
+    text-align: center;
+    list-style-type: none;
+}
+
+#copyr {
+    clear: both;
+}
 
 .btn {
-    margin-top: 15px;
+    margin-top: -15px;
     border: solid 2px white;
     color: dimgray;
     background: 0 0;
@@ -108,22 +170,22 @@ header {
 
 .btn:hover, 
 .btn:focus,
-.btn:active,
-.btn.active {
-    border: solid 2px aqua;
+.btn:active {
+    border: solid 2px limegreen;
     color: aqua;
     background: dimgray;
 }
 
-#btn.resume {
+#resume.btn {
     float: left;
+    margin-left: 28%;
 }
 
-#btn.cv {
+#cv.btn {
     float: right;
+    margin-right: 28%;
 }
 
-.column2 {
-    /* somehow make 2 columns here */
+#send.btn {
+    border: solid 2px dimgray;
 }
-

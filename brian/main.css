@@ -72,6 +72,10 @@ header {
     padding-bottom: 10px;
 }
 
+#profile img {
+    max-width: 300px;
+}
+
 #education {
     text-align: center;
     padding-top: 10px;
@@ -115,6 +119,7 @@ header {
 }
 
 #contact {
+    text-align: center;
     background: azure;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -127,6 +132,7 @@ header {
 }
 
 #location {
+    text-align: center;
     padding-top: 5px;
     background: cadetblue;
     font-size: 14px;
