@@ -22,8 +22,8 @@
     ================================================== -->
 <link rel="stylesheet" type="text/css"  href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css">
-<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="../js/modernizr.custom.js"></script>
 </head>
 
@@ -236,7 +236,7 @@
   <p>Hadoop (2.7.5) was downloaded and installed onto only the namenode (master). The slaves will be configured later.</p>
   <pre><code>
     root @zpm-master $: cd /opt
-    > root@zpm-master $: wget http://mirror.dsrg.utoronto.ca/apache/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz
+    > root@zpm-master $: wget https://mirror.dsrg.utoronto.ca/apache/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz
     > root@zpm-master $: tar -xvzf hadoop-2.7.5.tar.gz
     …
   </code></pre>
@@ -508,7 +508,7 @@
   </p>
   <pre><code>
     > root@zpm-master $: cd /home & mkdir localData
-		> root@zpm-master $: curl http://lintool.github.io/bespin-data/Shakespeare.txt > localData/Shakespeare.txt
+		> root@zpm-master $: curl https://lintool.github.io/bespin-data/Shakespeare.txt > localData/Shakespeare.txt
 		> root@zpm-master $: hadoop fs -mkdir -p /home/data
 		> root@zpm-master $: hadoop fs -copyFromLocal localData/Shakespeare.txt data/Shakespeare.txt
 		> root@zpm-master $: hadoop fs -ls /home/data
@@ -644,7 +644,7 @@
       <ol>
         <li>[1] https://www.raspberrypi.org/downloads/raspbian/</li>
         <li>[2] https://www.alpinelinux.org/downloads/</li>
-        <li>[3] http://dietpi.com</li>
+        <li>[3] https://dietpi.com</li>
         <li>[4] https://www.reddit.com/r/raspberry_pi/comments/5qrhc7/8_node_pi_hadoop_cluster/</li>
         <li>[5] https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04</li>
         <li>[6] https://www.sigops.org/sosp/sosp09/papers/hotpower_2_leverich.pdf</li>
