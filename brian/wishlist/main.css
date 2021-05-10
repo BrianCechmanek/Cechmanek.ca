@@ -7,16 +7,27 @@ header {
 }
 
 body {
-    background-color: #99FF99;
+    /*background-color: #99FF99;*/
+    background-image: url("img/snow.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-h1, h3, h2, p, li {
+h1, h2, h3 {
+    text-align: center;
+    color: black;
+} 
+
+p, li {
     font-family:"Helvetica Narrow";
     text-align: center;
+    color: darkblue;
 }
 
 li {
-    text-align: left;
+    text-align: center;
 }
 
 li:hover {

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZPM cluster</title>
+<meta name="description" content="Personal Project page: Zero Pi Model Cluster">
+<meta name="author" content="Brian Cechmanek">
+
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../fonts/font-awesome/css/font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css">
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../js/modernizr.custom.js"></script>
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation -->
+<div id="nav">
+  <nav class="navbar navbar-custom">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+        <a class="navbar-brand page-scroll" href="../">Brian</a> </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden"> <a href="#page-top"></a> </li>
+          <li> <a class="page-scroll" href="../zpm/index.html#ZPMc">ZPMc</a> </li>
+          <li> <a class="page-scroll" href="../index.html#about">About</a> </li>
+          <li> <a class="page-scroll" href="../index.html#skills">Skills</a> </li>
+          <li> <a class="page-scroll" href="../index.html#portfolio">Portfolio</a> </li>
+          <li> <a class="page-scroll" href="../index.html#resume">Resume</a> </li>
+          <li> <a class="page-scroll" href="../index.html#contact">Contact</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- INTRO -->
+<div id="ZPMc">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>The Zero Pi Model Cluster</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="about-text">
+          <p>Yes. A little late to the <u><a href="https://howchoo.com/g/njy4zdm3mwy/how-to-run-a-raspberry-pi-cluster-with-docker-swarm">pi</a></u> <u><a href="https://blog.alexellis.io/pizero-otg-swarm/">cluster</a></u> <u><a href="https://blog.hypriot.com/post/lets-build-a-pi-docker-picocluster/">game</a></u>. But most of the time you have to actually do something for yourself.
+            </p>
+          <p>Also, in starting up this project, I didn't see any full-fleshed guides on what you need to get this going,
+            from hardware to walkthroughs. So I'll try and document my steps <em>and</em> missteps throughout this all.</p>
+        </div>
+      </div>
+    </div>
+    </br>
+    <hr>
+  </div>
+
+<!-- EXECUTIVE SUMMARY -->
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>Executive Summary (TL;DR  )</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="about-text">
+          <p>The Hadoop framework was successfully installed and configured on a computing cluster of four Raspberry Pi Zeros
+            as datanodes and one Raspberry Pi 2 (Model B v1.1). Spark was successfully installed and run on the Pi 2, but
+            could not be configured to run on the pi Zeros due to their ARMv6 architecture. Basic test case executions were run
+            on both frameworks to test the runtime and power usage of the cluster. Running times of simple "word count" jobs
+            was surprisngly comparable to a professional Hadoop/Spark provider (Altiscale), on  the same order of minutes per
+            test type. </br></br>
+            The Yarn resource manager was installed and configured to monitor node and job activity.
+            </br></br>
+            While capable of running Hadoop, the extensive difficulty in configuration outweighed the benefits of running on
+            cheap physical devices. Frankly, I would highly recommend implementing a cluster from scratch, but
+            have to stress to use cheap virtual instances such as those provided commercially such as through Digital Ocean, AWS,
+            or similar academically available resources instead of the Pi.
+          </p>
+        </div>
+      </div>
+    </div>
+    </br>
+    <hr>
+  </div>
+
+
+<!-- MATERIALS -->
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>Materials</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="materials-text">
+          <ul>
+              <li>5 x Raspberry Pi Zeros (of course the Zero W came out shortly after I purchased these). </br><small>I got these for $5USD a piece at a Micro Center. Price may vary by location. </small></li></br>
+              <li>1 x Raspberry Pi 2 Model B V1.1 (Raspberry Pi Foundation)</li></br>
+              <li>5 x ADATA 16GB class 10 microSD cards (AUSDH16GCL10-RA1)</br><small>$6.50USD a piece. <a href="https://www.amazon.com/gp/product/B00BSRETVK/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"><u>From Amazon</u></a> (naturally wouldn't ship to Canada). </small></li></br>
+              <li>5 x 1 ft cat5e ethernet cable (purple).</br><small>$0.6USD per. <a href="https://www.monoprice.com/product?c_id=102&cp_id=10208&cs_id=1020802&p_id=11268&seq=1&format=2"><u>From Monoprice.</u></a></small></li></br>
+              <li>5 x 0.5 ft USB A to micro USB B (orange).</br><small>$0.9USD per. <a href="https://www.monoprice.com/product?c_id=103&cp_id=10303&cs_id=1030307&p_id=12006&seq=1&format=2"><u>From Monoprice.</u></a></small></li></br>
+              <li>1 x 8-port 10/100 Mbps Ethernet Switch.</br><small>$6.52USD per. <a href="https://www.monoprice.com/product?c_id=103&cp_id=10303&cs_id=1030307&p_id=12006&seq=1&format=2"><u>From Monoprice.</u></a></small></li></br>
+              <li>(optional) 5 x ENC28J60 Ethernet LAN Network Module.</br><small>$2.05USD per. <a href="https://www.aliexpress.com/item/Free-shipping-Mini-ENC28J60-Ethernet-LAN-Network-Module-For-Arduino-51-AVR-SPI-PIC-STM32-LPC/32354096737.html"><u>From AliExpress.</u></a></small></li></br>
+              <li>5 x Micro 5pin USB To RJ45 10/100M Ethernet.</br><small>$1.82USD per. <a href="https://www.aliexpress.com/item/2017-Popular-Micro-5pin-USB-To-RJ45-10-100M-Ethernet-Lan-Card-for-SamsungTable-PC-Free/32818063544.html"><u>From AliExpress.</u></a></small></li></br>
+              <li>1 x StarTech 7-port powered USB hub.</br><small>$12CAD. <a href="https://www.startech.com/ca/Cards-Adapters/USB-2/Hub/7-Port-USB-20-Hub~ST7202USB"><u>From Private sale, used.</u></a></small></li></br>
+              <li>(optional) 1 x Power Analyzer, Watt meter, and electricity Monitor (Watts Up, Electronic Educational Devices, Aurora Colorado)</li></br>
+              <li>(optional) 20 x M3.5 aluminium standoffs</li></br>
+              <li>(optional) 4 x M4.5 screws</li></br>
+          </ul>
+        </div>    <!-- close class="materials-text" -->
+      </div>    <!-- close class="col-md-8" -->
+    </div>    <!-- close class="row" -->
+    <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/zpmc.jpg" class="img-responsive"></div>
+    <p>That's it! The finished cluster. Photography isn't my strong point.</p>
+    </br>
+    <hr>
+  </div>    <!-- close materials container -->
+
+
+<!-- PRELIMINARY SETUP-->
+<div class="container">
+  <div class="section-title text-center center">
+    <h2>1. Preliminary Setup</h2>
+    <h3>OS Images</h3>
+    <p> Given the pi’s 1GHz single-core CPU, 512MB of RAM, and the 16GB SD storage which must be split
+      between the OS and actual HDFS data, choosing an appropriate OS was prudent. For example, the base
+      Raspbian Stretch (Debian-based) OS image is around 4GB, with the ‘headless’ version being around
+      1.2GB [1]. Further, some OSs run from RAM (e.g. Alpine Extended [2]). Finally, the BCM2835 chip
+      on the pi is ARMv6, eliminating all of the Ubuntu ARM (ARMv7) options.
+      </br>
+      Thus, an ideal situation would be low RAM usage during operation and a small disk footprint.
+      The Debian-based DietPi v6.6 (2018-04-01) was chosen for this project due to its low RAM and SD
+      card footprints, as well as its automatable installation option [3]. </p>
+      </br>
+      </br>
+    <h3>Os Installation</h3>
+    <p>Each microSD card was manually loaded with the DietPi OS using an Ubuntu system. When it was
+      determined that a Raspberry Pi 2 would be required as the namenode, it was set up similarly,
+      except using the DietPi_ARMv7_Stretch image. </p>
+    </br>
+    <pre style="text-align: left;"><code>
+      b@bk53e $: lsblk      # my card-reader/writer is on /dev/sdf
+      b@bk53e $: sudo umount /dev/sdf
+      b@bk53e $: dd if=~/path/to~/DietPi_v6.6_RPi-ARMv6-Stretch.img of=/dev/sdf
+    </code></pre>
+    <p> OpenSSH, Vim, and Docker do not come ready on the DietPi, but can be enabled, using the DietPi automation file: </p>
+	  <pre style="text-align: left;"><code>
+      b@bk53e $: vim /path/to/sdcard~/boot/dietpi.txt
+      > AUTO_SETUP_AUTOMATED=1
+      > CONFIG_BOOT_WAIT_FOR_NETWORK=2
+      > AUTO_SETUP_GLOBAL_PASSWORD=MapReduce
+      > AUTO_SETUP_INSTALL_SOFTWARE_ID=0   # OpenSSH
+      > AUTO_SETUP_INSTALL_SOFTWARE_ID=20  # Vim
+      > AUTO_SETUP_INSTALL_SOFTWARE_ID=162 # DOCKER
+      > CONFIG_CHECK_DIETPI_UPDATES=0 # disable updates booting
+    </pre></code>
+    <p>Installation of each image was verified via SSH connection test to the device on an Ubuntu machine.</p>
+		<pre style="text-align: left;"><code>
+      b@bk53e $: sudo arp-scan --localnet 	# to find LAN connection IP addresses of each
+      > ssh root@<\IPaddress>
+    </code></pre>
+
+    <p>Note, this was also tested on a Windows 7 machine, instead using:</p>
+		<pre><code>
+      arp -a 		# to find LAN connection IP addresses of each
+      > # PuTTY manual SSH
+    </pre></code>
+    <p>
+    Of the five SD cards imaged, one failed to properly resize the rootFS partition and two further
+    systems failed on their autoconfiguration. All three were re-imaged and worked properly afterwards.
+    </p>
+  <h3>Networking Setup</h3>
+  <p>For convenience, hostnames were assigned by order of their connection in the ethernet switch, zpm-master,
+     zpm-slave0, zpm-slave1, zpm-slave2, zpm-slave3 (See Appendix 2). Additionally, because the DietPi image
+     used creates a default of MAC address of 00:e0:4c:53:44:58, eth0 MAC addresses were manually modified,
+     to facilitate easier networking. More specifically, on my Ubuntu system, prior to changing, each node
+     was showing up with the same IP address (10.42.0.76), though interestingly, this didn’t occur on Windows.
+     Thus, the last octet (default: 58) was manually changed to range from 50 to 54, for each device.
+   </p>
+  <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/networking.png" class="img-responsive"></div>
+  <p>(upper left) local IP addresses of the devices, note as well the sequential MAC addresses. (left lower and
+    both right) Three devices pinging each other successfully over the ethernet switch.
+  </p>
+  <p>For convenience, each address|node-name pair was added to /etc/hosts for all pi’s (ex. Echo “10.42.0.68
+    zpm-master” >> /etc/hosts). Thus physical devices will be referred to by their hostname throughout this project.
+  </p>
+  <br>
+  <p>Each device will be required to communicate with any other device, so SSH keys were generated and shared
+    across all nodes:
+  </p>
+  <pre><code>
+    > root@zpm-master $: ssh-keygen -t rsa -b 4096
+    > root@zpm-master $: ssh-copy-id root@zpm-slave0
+    > root@zpm-master $: ssh-copy-id root@zpm-slave1
+    > …
+    > root@zpm-slave0 $: ssh-keygen -t rsa -b 4096
+    > root@zpm-slave0 $: ssh-copy-id root@zpm-master
+    > root@zpm-slave0 $: ssh-copy-id root@zpm-slave1
+    ...
+  </pre></code>
+  <p>Finally, a strange omission from the DietPi image was discovered: the device will not reconnect automatically
+    to a dropped ethernet connection. Thus, a network-monitor script has been added and is run as a cron job every
+    10 minutes, attempting to reconnect if the ethernet link is down (see source code for the project).
+  </p>
+  </div>
+  <hr>
+</div> <!-- close prelim setup -->
+
+<!-- SOFTWARE INSTALLATION -->
+<div class="container">
+  <div class="section-title text-center center">
+    <h2>2. Software Installation</h2>
+
+  <p>Java 8 (1.8.0_65) and scala (2.11.8) were installed on each device. </p>
+  <code>		> root@zpm-master $: apt-get install oracle-java8-jdk scala -y</code>
+  <p>This is slow on the devices. Across all 5 devices running simultaneously - though sharing a single ethernet
+    connection - installation took a little over 10 minutes on a 15Mbps internet connection.
+  </p>
+  </br>
+  <p>Hadoop (2.7.5) was downloaded and installed onto only the namenode (master). The slaves will be configured later.</p>
+  <pre><code>
+    root @zpm-master $: cd /opt
+    > root@zpm-master $: wget https://mirror.dsrg.utoronto.ca/apache/hadoop/common/hadoop-2.7.5/hadoop-2.7.5.tar.gz
+    > root@zpm-master $: tar -xvzf hadoop-2.7.5.tar.gz
+    …
+  </code></pre>
+  <p>Then environment variables were updated to house Hadoop, adding to ~/.bashrc:</p>
+  <pre><code>
+    # -- HADOOP ENVIRONMENT VARIABLES START -- #
+    export HADOOP_HOME=/opt/hadoop-2.7.5
+    export PATH=$PATH:$HADOOP_HOME/bin
+    export PATH=$PATH:$HADOOP_HOME/sbin
+    export HADOOP_MAPRED_HOME=$HADOOP_HOME
+    export HADOOP_COMMON_HOME=$HADOOP_HOME
+    export HADOOP_HDFS_HOME=$HADOOP_HOME
+    export YARN_HOME=$HADOOP_HOME
+    export HADOOP_COMMON_LIB_NATIV_DIR=$HADOOP_HOME/lib/native
+    export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"
+    # -- HADOOP ENVIRONMENT VARIABLES END -- #
+
+    # -- JAVA AND SCALA HOME VARIABLES -- #
+    export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre
+  </code></pre>
+  <p>And it was checked that Hadoop installed correctly:<p>
+  <pre><code>
+    root@zpm-master:~# hadoop version
+    Hadoop 2.7.5
+    Subversion https://shv@git-wip-us.apache.org/repos/asf/hadoop.git -r 18065c2b6806ed4aa6a3187d77cbe21bb3dba075
+    Compiled by kshvachk on 2017-12-16T01:06Z
+    Compiled with protoc 2.5.0
+    From source with checksum 9f118f95f47043332d51891e37f736e9
+    This command was run using /opt/hadoop-2.7.5/share/hadoop/common/hadoop-common-2.7.5.jar
+  </code></pre>
+  <p>Next, the namenode was configured to refer to the hostnames of the master and datanote (slave) devices.
+    Inside of /opt/hadoop-2.7.5/etc/hadoop:</p>
+  <pre><code>
+  		> root@zpm-master $: touch master slaves
+  		> root@zpm-master $: echo “zpm-master” >> master
+  		> root@zpm-master $: echo “zpm-slave0” >> slaves
+  		…
+  </code></pre>
+  <p>I prepared the HDFS into the namenode, which will be formatted once all datanodes are configured:</p>
+  <pre><code>
+    > root@zpm-master: mkdir -p /opt/hadoop-2.7.5/hdfs/namenode
+    > root@zpm-master: chmod 750 /opt/hadoop-2.7.5/hdfs/namenode
+  </code></pre>
+  <p>And defined the namenode hdfs configuration (/opt/hadoop-2.7.5/etc/hadoop/core-site.xml):</p>
+  <pre><code>
+  <\configuration>
+    <\property>
+      <\name>fs.default.name<\/name>
+      <\value>hdfs://zpm-master:9000/<\/value>
+    <\/property>
+    <\property>
+      <\name>fs.default.FS<\/name>
+      <\value>hdfs://zpm-master:9000/<\/value>
+    <\/property>
+  <\/configuration>
+  </code></pre>
+  <p>And the datanode hdfs configurations (/opt/hadoop-2.7.5/etc/hadoop/hdfs-site.xml). Note that replication
+    was set to a sensible factor of 3, though any number up to the amount of datanodes could have been
+    chosen, depending on desire for resiliency:
+  </p>
+  <pre><code>
+  <\configuration>
+      <\property>
+     	 <\name>dfs.datanode.data.dir<\/name>
+     	 <\value>/opt/hadoop-2.7.5/hdfs/datanode<\/value>
+     	 <\final>true<\/final>
+      <\/property>
+      <\property>
+     	 <\name>dfs.namenode.name.dir<\/name>
+     	 <\value>/opt/hadoop-2.7.5/hdfs/namenode<\/value>
+     	 <\final>true<\/final>
+      <\/property>
+      <\property>
+     	 <\name>dfs.namenode.http-address<\/name>
+     	 <\value>zpm-master:50070<\/value>
+      <\/property>
+      <\property>
+     	 <\name>dfs.replication<\/name>
+     	 <\value>4<\/value>
+      <\/property>
+  <\/configuration>
+</code></pre>
+  <p>The yarn resource manager ports were similarly configured (/opt/hadoop-2.7.5/etc/hadoop/yarn-site.xml):</p>
+  <pre><code>
+  <\configuration>
+      <\property>
+     	 <\name>yarn.resourcemanager.resource-tracker.address<\/name>
+     	 <\value>zpm-master:8025<\/value>
+      <\/property>
+      <\property>
+     	 <\name>yarn.resourcemanager.scheduler.address<\/name>
+     	 <\value>zpm-master:8035<\/value>
+      <\/property>
+      <\property>
+     	 <\name>yarn.resourcemanager.address<\/name>
+     	 <\value>zpm-master:8050<\/value>
+      <\/property>
+      <\property>
+      	<\description>Max available cores data node.<\/description>
+      	<\name>yarn.nodemanager.resource.cpu-vcores<\/name>
+      	<\value>1<\/value>
+      <\/property>
+  <\/configuration>
+  </code></pre>
+  <p>And finally, the mapreduce job tracker (/opt/hadoop-2.7.5/etc/hadoop/mapred-site.xml):</p>
+  <pre><code>
+  <\configuration>
+      <\property>
+     	 <\name>mapreduce.job.tracker<\/name>
+     	 <\value>zpm-master:5431<\/value>
+      <\/property>
+      <\property>
+     	 <\name>mapred.framework.name<\/name>
+     	 <\value>yarn<\/value>
+      <\/property>
+  <\/configuration>
+  </code></pre>
+  <p>Each slave node was then setup copying the configuration of the namenode. While here, it
+    is a good time to also set the java home environment, so Yarn and Hadoop can access it:
+  </p>
+  <pre><code>
+    > root@zpm-slave0 $: mkdir -p /opt/hadoop-2.7.5/hdfs/datanode
+    > root@zpm-slave0 $: chmod 750 /opt/hadoop/hdfs/datanode
+    > root@zpm-slave0 $: rmdir /opt/hadoop/hdfs/namenode
+    …
+    > root@zpm-slave0 $: echo “export   JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre” >>~/.bashrc
+  </code></pre>
+  <p>With the master and each slave now configured to recognize the filesystem; so format the namenode.</p>
+  <code> root@zpm-master: hdfs namenode -format</code>
+
+  <p>Some of the output information here is notable.</p>
+  <pre><code>
+  18/04/12 02:09:52 INFO util.GSet: Computing capacity for map cachedBlocks
+  18/04/12 02:09:52 INFO util.GSet: VM type   	= 32-bit
+  18/04/12 02:09:52 INFO util.GSet: 0.25% max memory 966.8 MB = 2.4 MB
+  </code></pre>
+  <p>It appears that the system is reading double the amount of memory that the pi zero has (512MB).
+    This was fixed later when tweaking the configuration defaults (see final configuration files).
+  </p>
+  </div>
+  <hr>
+</div> <!-- close software installation -->
+
+
+<!-- HADOOP SETUP-->
+<div class="container">
+  <div class="section-title text-center center">
+    <h2>3. Hadoop</h2>
+    <h3> Launch and verify the cluster</h3>
+    <pre><code>
+    > root@zpm-master $: start-yarn.sh
+    > root@zpm-master $: start-dfs.sh
+    </code></pre>
+    <p>As noted, the pi zero uses an ARMv6 chip, but it was here discovered that the default
+      distributions of Hadoop for ARM chips are compiled for ARMv7 only. Thus, this will
+      cause an error when Yarn attempts to run. The distributed file system, however, was
+      able to run and could be examined via the namenode’s server process (10.42.0.68:50070).
+      However, since the goal of this process is to set up a usable Hadoop/Spark cluster,
+      and building an ARMv6 binary for yarn is well beyond the scope of this project,
+       it was elected to proceed forward by replacing one of the pi zeros with a Raspberry
+       Pi 3 - which has an ARMv7 CPU. Due to a lack of additional hardware and an insufficient
+       powersource, the initial pi zero namenode was removed from the cluster.
+    </p>
+    <p> The datanodes, however, could still be run - just only in client mode, not server.
+      More specifically, each instance of “-server” within the datanode options,
+      was replaced with “-client”.
+    </p>
+    <pre><code>
+      > root@zpm-slave2:/opt/hadoop-2.7.5# grep -r DATANODE_OPTS .
+      > ./bin/hdfs:	HADOOP_OPTS="$HADOOP_OPTS -jvm server $HADOOP_DATANODE_OPTS"
+      > ./bin/hdfs:	HADOOP_OPTS="$HADOOP_OPTS -server $HADOOP_DATANODE_OPTS"
+      > ./bin/hdfs.cmd:  set HADOOP_OPTS=%HADOOP_OPTS% -server %HADOOP_DATANODE_OPTS%
+      > root@zpm-slave2:/opt/hadoop-2.7.5# grep -r "\-server" .
+      > ./yarn:  YARN_OPTS="$YARN_OPTS -server $YARN_NODEMANAGER_OPTS"
+    </code></pre>
+    <p>Thus, the Raspberry Pi 2 was set up as above, with the local IP address of 10.42.0.53,
+      hostname = zpm-master. The 4 datanodes were re-configured with ssh-keys for the
+      new namenode. Once set up, the hdfs was reformatted and Yarn/Hadoop could be run.
+    </p>
+    <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/HadoopServerSummary.png" class="img-responsive"></div>
+    <p>Figure: Hadoop server summary page (localhost:10.42.0.53:50070) showing start
+      time. As no files have been loaded to HDFS just yet, it is correctly showing empty.
+    </p>
+  </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+    <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/YarnServerSummary.png" class="img-responsive"></div>
+    <p>YARN server summary page (localhost:10.42.0.53:8088) showing a summary of the datanodes in the cluster.
+      Presently each device is indicating 8GB of available memory. This is the default set by yarn, and
+      was updated later to appropriately match the pi zero.
+    </p>
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+  </div>
+  <h3>Tuning the Cluster</h3>
+  <p> Given the 512MB of memory on the pi zeros, configuration of memory was critical
+    to running the cluster. Checking `top` for each of the zeros showed a total memory
+     of 492752 KiB of memory, and about 349000 KiB of free memory with just the
+      base OS processes running. Four specific values were assigned: the yarn
+      nodemanager resource, yarn scheduler, yarn mapreduce resource, and the map
+      reduce memory, each of which can be seen in Figure 5 below. Nodemanager
+      memory is set to the maximum believed that the device and handle, after
+      accounting for the operating system, in this case 320 MB. Following, I
+      set the yarn scheduler maximum and minimum to be 320 MB and 128 MB, respectively.
+      Yarn app mapreduce is set to 64 MB.
+  </p>
+  <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/linodeMemoryConfiguration.png" class="img-responsive"></div>
+  <p>Figure: Memory allocation illustration for the nodeManager on each node in the
+    Hadoop cluster (source: www.linode.com). The nodemanager should be the maximum
+    reasonable amount of memory that the device can dedicate after the OS. More
+    specifically, it is the amount reasonable for one container instance. On
+    devices with ample memory, multiple containers can be run simultaneously.
+    Since the pi zero is so limited, it was deemed impossible to run multiple
+    containers at once.
+  </p>
+</br></br></br></br></br></br></br>
+  <p>Table 1. Initial Memory allocation variables for each node of the cluster.
+    These were later all heavily modified during testing of the cluster.
+  </p>
+  <table style="width:80%" border="2">
+    <tr>
+      <th>File</th>
+      <th>Property</th>
+      <th>Allocation (MB)</th>
+    </tr>
+    <tr>
+      <td>yarn-site.xml</td>
+      <td>Yarn.nodemanager.resource.memory-mb</td>
+      <td>340</td>
+    </tr>
+    <tr>
+      <td>yarn-site.xml</td>
+      <td>Yarn.scheduler.maximum-allocation-mb</td>
+      <td>340</td>
+    </tr>
+    <tr>
+      <td>yarn-site.xml</td>
+      <td>Yarn.scheduler.minimum-allocation-mb</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>yarn-site.xml</td>
+      <td>Yarn.app.mapreduce.am.resource.mb</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td>mapred-site.xml</td>
+      <td>Mapreduce.map.memory.mb</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td>mapred-site.xml</td>
+      <td>Mapreduce.reduce.memory.mb</td>
+      <td>128</td>
+    </tr>
+  </table>
+  </br>
+  </br>
+  <p> While configuring the $HADOOP_HOME/etc/hadoop/hadoop-env.sh, the
+    java heap maximum was also set. Again This took multiple trials
+    to determine a minimum viable amount:
+  </p>
+  <pre><code>
+    # The maximum amount of heap to use, in MB. Default is 1000.
+    export HADOOP_HEAPSIZE=64
+  </code></pre>
+  </br>
+  <h3>Loading files to HDFS</h3>
+  <p>Multiple options exist to load data into hdfs. Here, copyFromLocal
+     was used to load Shakespeare.txt. I’ll use it to run the first hadoop
+     job: wordCount.
+  </p>
+  <pre><code>
+    > root@zpm-master $: cd /home & mkdir localData
+		> root@zpm-master $: curl https://lintool.github.io/bespin-data/Shakespeare.txt > localData/Shakespeare.txt
+		> root@zpm-master $: hadoop fs -mkdir -p /home/data
+		> root@zpm-master $: hadoop fs -copyFromLocal localData/Shakespeare.txt data/Shakespeare.txt
+		> root@zpm-master $: hadoop fs -ls /home/data
+		> Found 1 items -rw-r--r--   3 root supergroup	5328041 2018-04-15 01:57 /home/data/Shakespeare.txt
+  </code></pre>
+  </br>
+
+  <div class="col-md-8 col-md-offset-2"><img src="../img/zpm/BrowseDirectory.png" class="img-responsive"></div>
+  <p>Figure: Alternatively, files can be located on HDFS via the namenode browser.
+    Note the inefficiency of loading small files to HDFS, where a 5.08 MB
+    text file is allocated a full 128 MB block.
+  </p>
+  </br></br></br></br></br></br></br>
+
+  <h3>Running the first Hadoop Job</h3>
+  <p>The ‘hello world’ of Hadoop, on this modest cluster. Since Maven is not
+    installed, and would only take up limited resources on the namenode, the
+    compiled jars for all jobs were copied from the local dev laptop to the cluster.
+  </p>
+  <pre><code>
+  > root@zpm-master $: hadoop jar target/1.0.jar WordCount -input /home/data/Shakespeare.txt -output wc
+  </code></pre>
+  <p>While running resource usage was checked via terminal `top` as well as the Yarn server.
+
+  On the first run, the program did not complete, hanging for 60 minutes.
+  Though data appeared to be transferring across the network and each slave
+  could be ssh’d into, it appears that the namenode froze. A SIGTERM command
+  was unable to halt the operation and the namenode could not be ssh’d into.
+  Further, the yarn and hadoop web clients were not accessible. Graceful
+  shutdown was attempted via `stop-yarn.sh` and `stop-dfs.sh` through one of
+  the datanode devices. A hardboot was required on the namenode itself. It appears
+  that the third slave node (zpm-slave2) was the fault here, however the logs
+  on that datanode reveal nothing outstanding.
+
+  Inside of hdfs-site.xml, blocksize was changed from default 128 MB to 5MB chunks.
+  Since small files will be used, and need to minimize RAM usage, this should limit
+  MapReduce tasks to 5 MB chunks at a time. This requires a reformat of the hdfs
+  as well as reloading of all data to hdfs. Sadly, a second attempt at running
+  the job lead to another seizure of the namenode. This time, yarn was being
+  monitored immediately from job submission, to see if it showed up in the web
+  client. The server froze before the job submission appeared.
+
+  Again the logs for each node were unenlightening. A third time, instead of
+  submitting via the hadoop command, `yarn` was attempted in place instead
+  (i.e. $: yarn jar target/…), to similar results.
+
+  Following a post on Reddit [4], I attempted some fairly drastic reconfiguration
+  of the memory allocations for the cluster. This failed similarly.
+
+  With apologies to the health of the SD card, I enabled a 4G swap partition
+  on the namenode as outlined in a Digital Ocean posting [5].
+  </p>
+  <pre><code>
+    > root@zpm-master $: fallocate -l 4G /var/swap
+    > root@zpm-master $: mkwap /var/swap
+    > root@zpm-master $: swapon /var/swap
+    > root@zpm-master $: echo “/var/swap none swap sw 0 0” >> /etc/fstab
+  </code></pre>
+
+  <p>Finally! The namenode does not freeze. Though, while watching `top`
+  on the namenode during WordCount indicates a minimum of around 26 MB unused,
+  it does indeed show around 100 MB of the swap space being utilized. Sadly
+  however, the job fails: Exception in thread "main" java.io.IOException:
+  No space left on device. This is despite the namenode SD card still having
+  4.8 GB of available space, and the overall with 45.4 GB available
+  (`hadoop fs -df -h`). Reducing the swap size to 1G did not solve this error.
+  </p>
+  </br></br>
+  <p>As /tmp does indeed appear to fill up during WordCount, it was remounted
+  to 2.0G (`mount /tmp -o remount,size=2G`) to see how much gets used. Until
+  it froze, the namenode now used up to 511 MB of space in /tmp. Again,
+  watching `top` on the namenode, the HADOOP_HEAPSIZE was increased from
+  64 MB to 256 MB, allowing the job submission to get as far as initialization
+  of the JVM metrics, where it froze again. For a final try, sysctl swappiness
+  as set to 25, and the HADOOP_HEAPSIZE to 512MB.
+  </br>
+  Thus far, job progression has not yet made it to running any of the actual
+  data. That is, the namenode is dying simply on the startup of the JVM and
+  its associated objects.
+  </br>
+  Peaking at 644 MB in /tmp, using up the remaining ~512 MB of RAM as well as
+  a peak of 504 MB of swap memory, the job finally finishes in the short time
+  of 174.444 seconds. The output saves to hdfs://user/root/wc.
+  </p>
+  <pre><code>
+>root@zpm-master:/home/1.0# hadoop fs -cat /user/root/wc/part* | sort -r -k 2 -n | head
+  the    27361
+  and    26028
+  i    20681
+  to    19150
+  of    17463
+  a    14593
+  you    13615
+  my    12481
+  in    10956
+  that    10890
+  </code></pre>
+  </br></br>
+  <p> In the interest of time and exploration of possibilities of this project,
+  it was here elected to move on to Spark, instead of testing the runtimes of
+  the other simple jobs. One note however was that the job did not show up in
+  the yarn server - likely a configuration oversight somewhere to be solved at
+  a later date.
+  </p>
+  <hr>
+
+</div> <!-- close Hadoop -->
+
+
+<div class="container">
+  <div class="section-title text-center center">
+    <h2>4. Spark</h2>
+    <h3>An unfortunate letdown</h3>
+    <p>While installing Spark is actually relatively straightforward (left
+        as an exercise for the reader), it is ultimately impossible on thead
+        little Pi Zeros due to their ARMv6 architecture:</p>
+    <pre><code>
+        > Error occurred during initialization of VM
+        > Server VM is only supported on ARMv7+ VFP
+    </code></pre>
+    <p>Without much left to do, this is where the project ends.</p>
+    </br>
+    <p>Feel free to contact me with any questions about the build!</p>
+</div>/
+</div> <!-- close Spark -->
+
+
+<!-- REFERENCES -->``
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>References</h2>
+      <hr>
+      <ol>
+        <li>[1] https://www.raspberrypi.org/downloads/raspbian/</li>
+        <li>[2] https://www.alpinelinux.org/downloads/</li>
+        <li>[3] https://dietpi.com</li>
+        <li>[4] https://www.reddit.com/r/raspberry_pi/comments/5qrhc7/8_node_pi_hadoop_cluster/</li>
+        <li>[5] https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-ubuntu-14-04</li>
+        <li>[6] https://www.sigops.org/sosp/sosp09/papers/hotpower_2_leverich.pdf</li>
+        <li>[7] https://www.raspberrypi.org/magpi/raspberry-pi-3-specs-benchmarks/</li>
+      </ol>
+    </div>
+    <hr>
+    <h5>Disclaimer</h5>
+    <p>This project was submitted in a different form as a CS 651 (W2019, UWaterloo) final project.</p>
+  </div> <!-- close references container -->
+
+
+
+</div>   <!-- close id='ZPMc"' -->
+
+<!-- <div class="col-md-12 text-center"><img src="img/Brian-profile.png" class="img-responsive"></div> -->
+
+
+</body>
+
+</html>
