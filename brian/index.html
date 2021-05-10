@@ -1,182 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-A-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="resume">
-    <meta name="author" content="Brian Cechmanek">
-    
-    <link href="main.css" rel="stylesheet">
-        
-    <title>Brian Cechmanek - Scientist</title>    
-    </head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brian Cechmanek - Data Scientist</title>
+<meta name="description" content="Personal Portfolio Page">
+<meta name="author" content="Brian Cechmanek">
 
-    <header>
-        <!-- Navigation bar -->
-        <nav class="navbar">
-            <ul>
-                <li><a href=#profile>Brian</a></li>
-                <li><a href=#education>Education</a></li>
-                <li><a href=#projects>Projects</a></li>
-                <li><a href=#download>Download</a></li>
-                <li><a href=#contact>Contact</a></li>
-            </ul>
-        </nav>      
-    </header>
+<!-- Favicons
+    ================================================== -->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
-<!-- Profile Section -->      
-    
-    <main>
-        <section id="profile">
-            <h2>Brian Cechmanek</h2>
-            <img src="img/brianCircleProfile.png"; style="max-width:300">
-            <h4>MSc Candidate - University of Calgary</h4>
-        </section>
-                   
-        <section id="education">
-            <h2>Education</h2>
-               <details>
-                 <summary>BHSc (Hons) Biomedical - University of Calgary, 2011</summary>
-                   <ul>
-                     <li>Inquiry-based Health Sciences program with extensive research projects</li>
-                       <li>Resulted in <a href="http://online.liebertpub.com/doi/abs/10.1089/ther.2015.0010">peer reviewed publication</a></li>
-                     <li>Course focuses in Anatomy, Human Physiology, Organic Chemistry, Cellular Microbial Biology</li>
-                   </ul>
-               </details>
-               </br>
-               <details>
-                 <summary>MSc Candidate Biomedical Engineering - University of Calgary, 2016</summary>
-                   <ul>
-                     <li>Thesis-based investigation into brain differences in children and adolescents with ASD, using functional MRI</li>
-                     <li>Supplementary courses in biomedical engineering and professional development</li>
-                   </ul>
-               </details> </br>
-        </section>
- 
-        </section> <!-- close profile section -->
- 
-  
-<!-- Portfolio Section -->      
-    
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="container" id="portfolio1">
-                <div class="caption">
-                    <h3>Youth Sport</h3>
-                    <img src="img/AMRA.png" class="img-responsive" alt="">
-                    <details><summary>Board of Directors</summary> The Alberta Mini Roadracing Association is a non-profit amateur motorcycle racing club in Calgary Alberta, encouraging youth racing in a safe environment. <a href="http://www.amra.ca">Website</a></details>
-                </div>
-            </div>
-            <div class="container" id="portfolio2">
-                <div class="caption">
-                    <h3>Entrepreneur- Engineering</h3>
-                    <img src="img/alta.png" class="img-responsive" alt="">
-                    <details><summary>COO, cofounder</summary>Alta Ltd. A small mechanical engineering, fabrication, inspections, and consultation firm based in Calgary, AB.</details>
-                </div>
-            </div>
-            <div class="container" id="portfolio3">
-                <div class="caption">
-                    <h3>TOM Maker</h3>
-                    <img src="img/tom.png" class="img-responsive" alt="">
-                    <details><summary>Tikkun Olam Makers: Calgary</summary>A design challenge to solve problems neglected by industry. This year my team designed and fabricated a winter-traversable wheelchair attachment. Contact: <a href="https://www.facebook.com/TIkkunOlamMakeathon/">Richard Lushai</a></details>
-                </div>
-            </div>
-            <div class="container" id="portfolio4">
-                <div class="caption">
-                    <h3>Programming</h3>
-                    <img src="img/code.png" class="img-responsive" alt="">
-                    <details><summary>Self-taught developer</summary>With a tenuous grasp on html/css, java, python, C, and MATLAB! Examples include this website, and my GitHub.</details>
-                </div>
-            </div>
-            <div class="container" id="portfolio5">
-                <div class="caption">
-                    <h3>Dog Trainer</h3>
-                    <img src="img/rossi.png" class="img-responsive" alt="">
-                    <details><summary>Owner</summary> Not truly a "project" per se, but definitely a humbling pet project!</details>
-                </div>
-            </div>
-            <div class="container" id="portfolio6">
-                <div class="caption">
-                    <h3>Moto Racing</h3>
-                    <img src="img/moto.png" class="img-responsive" alt="">
-                    <details><summary>Amateur Motorcycle Racer</summary>Everyone needs a hobby. I've raced in the Canadian National and Provincial (Alberta) mini-roadracing circuit since 2012.</details>
-                </div>
-            </div>
-        </section>
-    
-<!-- Download Section -->    
-    
-        <section id="download">
-            <div>
-                <h2>Download</h2>
-            </div>
-            <div class="column2">
-                <p>See my Résumé and CV here</p>
-                <div class="btn" id="resume"><a href="files/resume.pdf" download>Résumé</a></div>
-                <div class="btn" id="cv"><a href="/brian/files/cv.pdf">CV - coming soon!</a></div>
-            </div>
-        </section>
-    </main>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
 
-<!-- Contact Section -->  
-    <section id="contact">
-        <h2>Contact Me</h2>
-<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->        
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="container">
+      <div class="row">
+        <div class="intro-text">
+            <h1>Glad to have you here.</br> I'm <span class="name">Brian Cechmanek</span></h1>
+          <p>Data Scientist & Social Enterprise Innovator</p>
+          <a href="#about" class="btn btn-default btn-lg page-scroll">Learn More</a> </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Navigation -->
+<div id="nav">
+  <nav class="navbar navbar-custom">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i> </button>
+        <a class="navbar-brand page-scroll" href="#page-top">Brian</a> </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden"> <a href="#page-top"></a> </li>
+          <li> <a class="page-scroll" href="#about">About</a> </li>
+          <li> <a class="page-scroll" href="#skills">Skills</a> </li>
+          <li> <a class="page-scroll" href="#portfolio">Portfolio</a> </li>
+          <li> <a class="page-scroll" href="#resume">Resume</a> </li>
+          <li> <a class="page-scroll" href="#contact">Contact</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>About Me</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center"><img src="img/Brian-profile.png" class="img-responsive"></div>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="about-text">
+          <center>
+          <p>Image analysis and processing, turned computer vision scientist, I
+             am now working in multiple areas of NLP and text processing. I
+             care about deploying production code, documentation (yes, really),
+             and <em>actually looking</em> at the data.</p>
+          <p>I love good data, and I <em>hate</em> bad statistics.</p>
+          </center>
+          <p class="text-center"><a class="btn btn-primary" href="files/cechmanek_resume_2019.pdf"><i class="fa fa-download"></i> Download Resume</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Skills Section -->
+<div id="skills" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Skills</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="95"> <span class="percent">95</span> </span>
+        <h4>Python- Pandas/Numpy/SciPy</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="80"> <span class="percent">80</span> </span>
+        <h4>ScikitLearn, Tensorflow, Keras</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="70"> <span class="percent">70</span> </span>
+        <h4>Java/Scala - Hadoop/Spark/Parquet</h4>
+      </div>
+        <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="65"> <span class="percent">65</span> </span>
+        <h4>Visualizations (D3.js, Bokeh, Seaborn, Matplotlib, Plotly)</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="60"> <span class="percent">60</span> </span>
+        <h4>(My)SQL, MongoDB</h4>
+      </div>
+      <div class="col-md-4 col-sm-6 skill"> <span class="chart" data-percent="30"> <span class="percent">30</span> </span>
+        <h4>Exciting Interactive Websites</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio Section -->
+<div id="portfolio">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>Portfolio</h2>
+      <hr>
+    </div>
+    <div class="categories">
+      <ul class="cat">
+        <li>
+          <ol class="type">
+            <li><a href="#" data-filter="*" class="active">All</a></li>
+            <li><a href="#" data-filter=".ds">Data Science</a></li>
+            <li><a href="#" data-filter=".code">Code</a></li>
+            <li><a href="#" data-filter=".social">Social good</a></li>
+          </ol>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        <div class="col-sm-6 col-md-3 col-lg-3 social">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/tom-large.png" title="72-hour makeathon addressing neglected challenges. Help one, help many." rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Tikkun Olam Makers: Alberta</h4>
+                <small>Co-founder and Organizer</small> </div>
+              <img src="img/portfolio/tom-small.png" class="img-responsive" alt="TOM:CGY Makeathon"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/alta-large.png" title="Mechanical engineering consultation, fabrication, inspection, and product design company in natural gas physical separator and filtration packages." rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Co-founder & COO</h4>
+                <small>Engineering and Consulting Services</small> </div>
+              <img src="img/portfolio/alta-small.png" class="img-responsive" alt="Engineering Consulting Services"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 ds">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/dashboardD3-large.png" title="Interactive dashboards with R-Shiney, plotly, and D3.js" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Interactive Dashboards</h4>
+                <small>Real-time and web-served</small> </div>
+              <img src="img/portfolio/dashboardD3-small.png" class="img-responsive" alt="Interactive Data Dashboards"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 ds">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/plots-large.png" title="Dava Visualizations with Plotly, ggplot, D3.js, Bokeh, et c" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Data Anatlyics and Consulting</h4>
+                <small>Modern Visualizations (Plotly, Bokeh...)</small> </div>
+              <img src="img/portfolio/plots-small.png" class="img-responsive" alt="Data Mining, andalytics and Consulting"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 code">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/webapps-large.png" title="Responsive webapps (node.js, js, scala, SQL, Play/Spring, Ionic)" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Web Apps</h4>
+                <small>Responsive and Cross-Platform</small> </div>
+              <img src="img/portfolio/webapps-small.png" class="img-responsive" alt="Web Apps (Ionic, Flask et c)"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 ds code">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/kaggle-large.png" title="Machine Learning Practical Applications" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>NLP: Word Imputation</h4>
+                <small>Via Kaggle Billion Words Imputation Challenge</small> </div>
+              <img src="img/portfolio/kaggle-small.png" class="img-responsive" alt="Natural Language Processing: Word Imputation"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 social">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/ucan-large.png" title="Making assistive and inclusive prototypes for neglected challenges faced by campus goers." rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>University Campus Ability Network</h4>
+                <small>Student-run, community served</small> </div>
+              <img src="img/portfolio/ucan-small.png" class="img-responsive" alt="University Campus Ability Network     "> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-3 code">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/wrecker-large.png" title="RogueLike Space Salvage (C)" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Wrecker</h4>
+                <small>Game Development</small> </div>
+              <img src="img/portfolio/wrecker-small.png" class="img-responsive" alt="Wrecker (C, with BearLibTerminal)"> </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Achievements Section -->
+<div id="achievements" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Currently working on</h2>
+        <small>Or reading</small>
+      <hr>
+        <ol>
+            <li>Introduction to Probability </br> Jessica Hwang and Joseph Blitzstein - 2014</li></br>
+            <li>The Elements of Statistical Learning </br>Data Mining, Inference, and Prediction - Haste et al. 2013</li></br>
+            <li>Python for Finance </br>Analyze Big Financial Data - Hilpisch 2014</li></br>
+            <li>The Grammar of Graphics </br> Second Ed. - Wilkinson 2005</li></br>
+
+        </ol>
+      <h2>Past Projects</h2>
+        <small>Or readings/coding</small>
+      <hr>
+        <ol>
+          <li><a href="zpm/">Zero Pi Model cluster: Personal Hadoop micro-cluster.</a> </br>Completed: May 2018</li></br>
+          <li>Hacking, The Art of Exploitation </br>Second Ed. - Erickson 2008. Completed: Nov 2017</li></br>
+          <li>Python Machine Learning </br>First Ed. - Sebastian Raschka. Completed: Mar 2017</li></br>
+        </ol>
+    </div>
+<!--
+    <div class="row">
+      <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="200ms">
+        <div class="achievement-box"> <span class="count">3</span>
+          <h4>Makeathons Organized</h4>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="400ms">
+        <div class="achievement-box"> <span class="count">4700</span>
+          <h4>Projects Hosted</h4>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="600ms">
+        <div class="achievement-box"> <span class="count">30</span>
+          <h4>Awards Won</h4>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3 wow fadeInDown" data-wow-delay="800ms">
+        <div class="achievement-box"> <span class="count">8</span>
+          <h4>Years of Experience</h4>
+        </div>
+      </div>
+    </div>
+-->
+  </div>
+</div>
+<!-- Resume Section -->
+<div id="resume" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Experience</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+
+
+          <li>
+            <div class="timeline-image">
+              <h4>Prsent <br>
+                - <br>
+                Jan 2019 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4><a href="https://exvivo.com/">ExVivo</a></h4>
+                <h4 class="subheading">Data Engineer - Computer Vision</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Building Scalable data systems for a new age of allergy testing.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Jan 2019 <br>
+                - <br>
+                May 2018 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4><a href="https://innovation.thomsonreuters.com/en/labs.html">Thomson Reuters Labs</a></h4>
+                <h4 class="subheading">Data Scientist</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Novel NLP models for Tax and Legal.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <h4>Jan 2018 <br>
+                - <br>
+                Apr 2017</h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4><a href="www.kadimadynamics.com">Kadima Dynamics</a></h4>
+                <h4 class="subheading">Lead Data Analytics</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Developing sustainability metrics for non-profits and charities. Measuring impact of social enterprise and innovation in a scarce funded world.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Jan 2017  <br>
+                - <br>
+                Apr 2017 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4><a href="www.cybera.ca">Cybera</a></h4>
+                <h4 class="subheading">Data Scientist</h4>
+              </div>/
+              <div class="timeline-body">
+                <p>Consulting services for government and enterprise across Alberta, bringing big-data analysis to small organizations. Pushing technology innovation and understanding in the province.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <h4>Jan 2017 <br>
+                - <br>
+                Sept 2016 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4><a href="www.cohesic.com">Cohesic Digital Health</a></h4>
+                <h4 class="subheading">Data  Analyst & software testing (BDD, E2E)</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Physician reporting software for CT and MRI - in the modern world. Faster workflows, AI-assisted image reading.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Sept 2011 <br>
+                - <br>
+                Jan 2013 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>SFN Biosystems Inc.</h4>
+                <h4 class="subheading">Biologist</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Design and operation of the worlds-largest, to date, photobioreactor (PRB) for the sequestration of carbon emissions and growth of high-value algae product.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <h4>May 2006 <br>
+                - <br>
+                Sep 2017 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>Alta Ltd., Engineering Design and Consulting</h4>
+                <h4 class="subheading">Co-Founder & COO</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Mechanical Engineering design, fabrication, and consulting for natural gas compression services.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="section-title center">
+      <h2>Education</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="timeline">
+
+          <!-- Education Section-->
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>Jan 2018 <br>
+                - <br>
+                Present </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>University of Waterloo</h4>
+                <h4 class="subheading">MMath - Data Science</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Full-stack experience in Data Engineering and Data science. Including database systems implementation, hardware and software (Hadoop, Spark, et c), and ML engineering methods algorithms and statistics.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-image">
+              <h4>2014 <br>
+                - <br>
+                2017 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>University of Calgary</h4>
+                <h4 class="subheading">MSc. Biomedical Engineering - Image Processing</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Analysis of the world's largest, to-date, functional MRI data base for Autism Spectrum Disorders.</br>Key methods: PCA, multiple linear regression, timeseries analysis.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-image">
+              <h4>2007 <br>
+                - <br>
+                2011 </h4>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4>University of Calgary</h4>
+                <h4 class="subheading">Bachelour of Health Sciences (Hons.) - Biomedical</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Focus on independent research, quantitative methods, biostatistics, and experimental design. honour's thesis in the design and testing of a novel stroke treatment therapy (very mild hypothermia apparatus).</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Contact</h2>
+      <hr>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4"> <i class="fa fa-map-marker fa-2x"></i>
+          <p>Waterloo, ON </br> Canada</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-envelope-o fa-2x"></i>
+        <p>b@cechmanek.ca</p>
+      </div>
+      <div class="col-md-4"> <i class="fa fa-phone fa-2x"></i>
+        <p> +1 403 998 3628</p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Leave me a message</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
         <div class="row">
-            <form name="sendMessage" id="contactForm" novalidate>
-                <div>
-                    <lavel>Name</lavel>
-                    <input type="text" class="form-control" placeholder="name" id="name" required data-validation-required-message="Please enter your name.">
-                    <p class="help-block text-danger"></p>
-                </div>
-                <div>
-                    <label>Email Address</label><input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                </div>
-                <div>
-                    <label>Phone Number</label>
-                    <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-                    <p class="help-block text-danger"></p>
-                </div>
-                <div>
-                    <label>Message</label>
-                    <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                </div>
-                <div>
-                    <button type="submit" class="btn" id="send">Send</button>
-                </div>
-                
-            </form>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
         </div>
-    </section>
-
-<!-- my Info Section --> 
-    <footer id="info">
-        <div id ="location">
-            <h3>Location</h3>
-            <p>University of Calgary</p>
-            <p>Alberta Children's Hospital</p>
-            <p>Cild and Adolescent Imaging Research Offices</p>
-            <p>A-0-401C-4</p>
-            <p>2888 Shaganappi Trail NW, Calgary</p>
-            <p>AB T3B 6A9</p>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <p class="help-block text-danger"></p>
         </div>
-        
-        <div>
-            <h3>Around the Web</h3>
-            <ul class="list-inline">
-                <li id="lnIn"><a href="https://www.linkedin.com/in/brian-cechmanek-62a00ab1"><img src="img/lnIcon.png" height="50px" width="50px"></a></li>
-                <li id="gitHub"><a href="https://www.gitub.com/BrianCechmanek"><img src="img/gitHubIcon.png" height="50px" width="50px"></a></li>
-                </ul>            
-        </div>
-        
-        <div id="copyr">
-            <h6>Copyright &copy; Brian Cechmanek 2016
-                </br>last updated: Mar 8 2018</h6>
-        </div>
-    </footer>
-
+        <div id="success"></div>
+        <button type="submit" class="btn btn-default">Send Message</button>
+      </form>
+      <div class="social">
+        <ul>
+<!--          <li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+          <li><a href="https://twitter.com/BrianCechmanek"><i class="fa fa-twitter"></i></a></li>
+<!--          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+          <li><a href="https://github.com/brianCechmanek"><i class="fa fa-github"></i></a></li>
+          <li><a href="https://www.instagram.com/b.checks/"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://ca.linkedin.com/in/brian-cechmanek-62a00ab1"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="container text-center">
+    <div class="fnav">
+      <p>Copyright &copy; 2017 Brian Cechmanek</p>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/easypiechart.js"></script>
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jquery.counterup.js"></script>
+<script type="text/javascript" src="js/waypoints.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/contact_me.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
 </html>
